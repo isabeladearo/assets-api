@@ -1,7 +1,8 @@
 const express = require('express');
+const assetsRouter = require('./assets.router');
 
 const router = express.Router();
 
-router.get('/', (_req, res) => res.send('<h1> Lalaland </h1>'));
+router.use('/assets', assetsRouter);
 
 module.exports = router;
