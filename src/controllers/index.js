@@ -1,3 +1,4 @@
 const assetsController = require('./assets.controller');
+const inventoryController = require('./inventory.controller');
 
-module.exports = { assetsController };
+module.exports = { assetsController, inventoryController };
