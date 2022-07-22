@@ -2,18 +2,14 @@ const { assetsData } = require('../data');
 
 const getAllAssets = () => assetsData;
 
-const getAssetsByTicker = (ticker) => {
+const getAssetsById = (id) => {
   const assets = getAllAssets();
 
-  if (!ticker) return assets;
-
   const assetFound = assets.filter(
-    (stock) => stock.codAtivo.toUpperCase() === ticker.toUpperCase(),
+    (asset) => asset.codAtivo === Number(id),
   );
-
-  if (!assetFound) return assets;
 
   return assetFound;
 };
 
-module.exports = { getAllAssets, getAssetsByTicker };
+module.exports = { getAllAssets, getAssetsById };

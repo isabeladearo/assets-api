@@ -3,7 +3,7 @@ const { assetsController } = require('../controllers');
 
 const router = express.Router();
 
-router.get('/search', assetsController.getAssetsByTicker);
+router.get('/:id', assetsController.getAssetsById);
 
 router.get('/', assetsController.getAllAssets);
 
