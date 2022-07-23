@@ -5,7 +5,7 @@ const getAllAssets = () => assetsData;
 const getAssetsById = (id) => {
   const assets = getAllAssets();
 
-  const assetFound = assets.filter(
+  const assetFound = assets.find(
     (asset) => asset.codAtivo === Number(id),
   );
 

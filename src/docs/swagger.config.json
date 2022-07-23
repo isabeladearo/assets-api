@@ -1,0 +1,133 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Ativos-API",
+      "description": "API desenvolvida para o desafio técnico do processo seletivo da XP",
+      "contact": {
+        "name": "Isabela de Aro",
+        "email": "euisabeladearo@gmail.com"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://assets-api-backend.herokuapp.com/",
+        "description": "Heroku Servidor"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "Ativos": {
+          "type": "object",
+          "properties": {
+            "codAtivo": {
+              "type": "number"
+            },
+            "ticker": {
+              "type": "string"
+            },
+            "nome": {
+              "type": "string"
+            },
+            "cotacao": {
+              "type": "number"
+            },
+            "moeda": {
+              "type": "string"
+            }
+          }
+        },
+        "Inventory": {
+          "type": "object",
+          "properties": {
+            "codAtivo": {
+              "type": "number"
+            },
+            "ticker": {
+              "type": "string"
+            },
+            "qtdeAtivo": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "paths": {
+      "/assets": {
+        "get": {
+          "summary": "Busca por todos os ativos",
+          "description": "Rota responsável por buscar a cotação de todos os ativos",
+          "tags": ["Ativos"],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ativos"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/assets/{id}": {
+        "get": {
+          "summary": "Busca ativo por codAtivo",
+          "description": "Rota responsável por buscar a cotação de um ativo específico",
+          "tags": ["Ativos"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "$ref": "#/components/schemas/Ativos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/inventory": {
+        "get": {
+          "summary": "Busca pela quantidade de ativos",
+          "description": "Rota responsável por buscar a quantidade de ativos",
+          "tags": ["Inventário"],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Inventory"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis": ["./src/routers/index.js"]
+}
