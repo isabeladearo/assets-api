@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDoc, { explorer: true }));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use(routers);
 
