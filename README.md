@@ -7,7 +7,11 @@ Tendo em vista que o mercado de ações é muito dinâmico. A ideia foi gerar um
 
 Nesse primeiro momento, a api está estática por questões de perfomance, podendo ser aprimorada posteriormente.
 
-A lógica deste [repositório](https://github.com/isabeladearo/web-scraping-assets) foi utilizada como base nesta aplicação.
+Os dados utilizados nessa api, são referente ao site [dados de mercado](https://www.dadosdemercado.com.br/) e a captura de dados foi realizada através de um script utilizando o conceito de web-scraping. Com esse script, é gerado um arquivo contendo todos os dados dos ativos, incluindo dados como:
+- ticker
+- nome da ação
+- cotação
+- quantidade
 ##
 ## 🟦 Rotas desenvolvidas
   - `GET - assets/`: Retorna todos as cotações dos ativos.
